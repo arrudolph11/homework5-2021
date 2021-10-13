@@ -34,8 +34,9 @@ nav li{
 nav{
   background-color: #ddd;
   padding: 25px 0;    
-  text-align: left;   
+  text-align: left;
 }
+
 
 header p{
   color: white;
@@ -59,14 +60,15 @@ footer{
 nav a{
   color: black;
   font-weight: bold;
-  /* Requirement 1 code here*/
   text-decoration: none;
+  /* Requirement 1 code here*/
 }
 
-  /* Requirement 2 code here*/
 a:hover{
-  text-decoration: underline;
+  text-decoration: underline; 
 }
+  /* Requirement 2 code here*/
+
 
 
 .skip a{
@@ -76,39 +78,37 @@ a:hover{
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
-  position: absolute; 
-  top: -40px;
-  /* The link is positioned 40px aboce the top of it's parent element and hidden by deafault */
+
   /* Requirement 3a code here*/
-  
+  /* top: 40px; */
+  /* The link is positioned 40px above the top of it’s parent element (it is hidden by default). */
+  top: -40px;
+  position: absolute;
+
 }
 
 /* Requirement 3b code here*/
-
-.skip a:focus-visible{
-  position: relative;
+/* When the link is in focus it is positioned even with the top of it’s parent (so it is visible only when in focus.)
+ */
+ .skip a:focus{
+  /* top: -100px; */
+  position: relative; 
   top: 0px;
-}
-
-
+ }
 
 /* Requirement 4 code here*/
 *:focus{
-border-top: 2px solid;
-border-bottom: 2px solid;
-border-left: 2px solid;
-border-right: 2px solid;
+  border: solid 2px;
 }
 
 
 .container{
   /* Requirement 5 code here*/
-display: grid;
-grid-template-columns: 1fr 5fr 1fr;
-/* grid-template-rows: 5 auto; */
-/* grid-row:  1 /  5; */
-grid-template-rows: auto auto auto auto auto;
-grid-row-gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-row-gap: 15px;
+
 }
 
 /* Remainder of requirements here: */
@@ -134,109 +134,83 @@ header{
   grid-column: 1/-1;
   max-height: 700px;
   overflow: hidden;
-  grid-row: 2 / span 1;
+  grid-row: 2/span 1;
 }
 
 .about{
-  grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
+ grid-column: 2/span 1;
+ grid-row: 2/span 1;
 }
 
 .method-image{
-  max-height: 700px;
   grid-column: 1/-1;
+  max-height: 700px;
   overflow: hidden;
-  grid-row: 3 / span 1;
+  grid-row: 3/span 1;
 }
 
 .method{
-  grid-column: 2 / span 1;
-  grid-row: 3 / span 1;
-}
-
-.clients{
-  grid-column: 2 / span 1;
-  grid-row: 4 / span 1;
-}
-
-.contact{
-  grid-column: 2 / span 1;
-  grid-row: 5 / span 1;
+  grid-column: 2/span 1;
+  grid-row: 3/span 1;
 }
 
 .clients-image{
   grid-column: 1/-1;
   max-height: 700px;
-  grid-row: 4 / span 1;
   overflow: hidden;
+  grid-row: 4/span 1;
+}
+
+.clients{
+  grid-column: 2/span 1;
+  grid-row: 4/span 1;
 }
 
 .contact-image{
   grid-column: 1/-1;
   max-height: 700px;
   overflow: hidden;
-  grid-row: 5 / span 1;
+  grid-row: 5/span 1;
 }
-/* You need to write some of your own selectors here */
 
+.contact{
+  grid-column: 2/span 1;
+  grid-row: 5/span 1;
+}
 
 
 .text-block{
   background-color: rgba(255, 255, 255, .8);
   border: 10px solid black;
   padding: 30px;
-  /* text-align: center; */
-  align-self: center;
+
   /* Your code here */
+  align-self: center;
 
 }
 
 @media screen and (min-width: 800px){
   nav{
     padding: 30px 0;
-    text-align: right;
-
+    align-self: flex-end;
     /* Your code here */
+    text-align: right;
   }
 
   .container{
     display: grid;
-   grid-template-columns: 50px auto 500px auto 50px;
-   grid-template-rows: 400px 400px 400px 400px 400px;
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows:  400px 400px 400px 400px 400px;
   }
 
-  
+  .method, .contact, .about-image, .clients-image{
+    grid-column: 2/ span 2;
 
-  .about-image{
-   grid-column-start: 2 / span 2;
   }
 
-  .about{
-    grid-column-start: 3 / span 2;
-  }
+  .about, .clients, .method-image, .contact-image{
+    grid-column: 3/ span 2;
 
-  .method-image{
-    grid-column-start: 3 / span 2;
-  }
-
-  .method{
-    grid-column-start: 2 / span 2;
-  }
-
-  .clients-image{
-    grid-column-start: 2 / span 2;
-  }
-
-  .clients{
-    grid-column-start: 3 / span 2;
-  }
-
-  .contact-image{
-    grid-column-start: 3 / span 2;
-  }
-
-  .contact{
-    grid-column-start: 2 / span 2;
   }
 
 }
