@@ -122,8 +122,9 @@ header{
 
   /* YOUR CODE HERE; */
   grid-column: 1/-1;
-  grid-row-start: 1;
-  grid-row-end: 1;
+/*   grid-row-start: 1;
+  grid-row-end: 1; */
+  grid-row: 1/span 1;
   background-image: url('../img/header.jpg');
   background-repeat: no-repeat;
 }
